@@ -1,0 +1,188 @@
+version: '3.1'
+intents:
+- affirm
+- choice_annulation_reservation
+- choice_carte
+- choice_creation_reservation
+- choice_info_reservation
+- choice_liste_allergene
+- choice_menu
+- deny
+- goodbye
+- greet
+- inform_date
+- inform_nb_personnes
+- inform_nom_resa
+- inform_numero_tel
+- provide_reservation_number
+entities:
+- numero_resa
+- check_nom_resa
+- check_date_resa
+- check_tel_resa
+- check_nb_personne_resa
+- resa
+- date
+- nb_personne
+- city
+- nom
+- tel
+slots:
+  check_nom_resa:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: check_nom_resa
+
+  check_date_resa:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: check_date_resa
+  check_tel_resa:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: check_tel_resa
+  check_nb_personne_resa:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: check_nb_personne_resa
+  numero_resa:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: numero_resa
+    influence_conversation: false
+  resa:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: resa
+  tel:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: tel
+  date:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: date
+  nb_personne:
+    influence_conversation: false
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nb_personne
+  nom:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: nom
+responses:
+  utter_greet:
+  - text: Bonjour, que puis je faire pour vous ?
+  utter_choices:
+  - text: |-
+      Que souhaitez vous faire ? 
+       - Créer une réservation 
+       - Annuler une réservation 
+       - Infos sur réservation 
+       - Menu du jour 
+       - Liste des allergènes 
+       - Carte du restaurant
+  utter_menu:
+  - text: |-
+      Voici le menu du jour : <menu> 
+       Est ce que je peux faire autre chose pour vous ?
+  utter_liste_allergene:
+  - text: |-
+      Voici la liste des allergenes : <liste allergene> 
+       Est ce que je peux faire autre chose pour vous ?
+  utter_carte:
+  - text: |-
+      Voici la carte du restaurant : <carte restaurant> 
+       Est ce que je peux faire autre chose pour vous ?
+  utter_ask_resa:
+  - text: Avec plaisir, pouvez-vous nous donner votre numéro de réservation ?
+  utter_goodbye:
+  - text: Au revoir !
+  utter_booking:
+  - text: Super, où voulez vous aller ?
+  utter_booking_city:
+  - text: Très bien, ce serait pour quand ?
+  utter_booking_date:
+  - text: C'est noté pour la date
+  utter_confirm_booking:
+  - text: Votre réservation à {city} pour la date {date} a été confirmée.
+  utter_ask_for_reconfirmation:
+  - text: Voulez-vous confirmer la réservation de l'hôtel à {city} pour la date {date}?
+  utter_booking_cancelled:
+  - text: La réservation a été annulée.
+  utter_ask_time:
+  - text: Pour quand souhaitez vous réserver ?
+  utter_time_taken:
+  - text: C'est bien noté, vous souhaitez réserver pour combien de personnes ?
+  utter_is_checking:
+  - text: J'ai bien noté votre demande pour {date} et {nb_personne} personnes, je vérifie si c'est possible..
+  utter_resa_est_dispo:
+  - text: Votre reservation pour {date} et {nb_personne} personnes est possible, puis-je avoir votre nom pour la reservation ?
+  utter_ask_numero_tel:
+  - text: J'ai noté votre nom, {nom}, pouvez-vous me donner votre numéro de téléphone ?
+  utter_confirm_resa:
+  - text: J'ai noté votre numéro de téléphone, {tel}, Pour récapituler, nous avons enregistré votre réservation pour {date} pour {nb_personne} personnes, au nom de {nom}. Voici votre numero de réservation, {resa}, notez le pour modifier ou supprimer votre reservation au cas ou.
+  utter_default:
+  - text: Désolé, je n'ai pas compris. Pouvez-vous reformuler votre demande?
+  utter_resa_numero_is_valid:
+  - text: Votre numéro de reservation est valide, voici les infos liées à votre reservation, reservation pour {check_date_resa} pour {check_nb_personne_resa} personnes, au nom de {check_nom_resa}, nous avons noté {check_tel_resa} en numéro de téléphone.
+  utter_resa_numero_is_wrong:
+  - text: Désolé, je ne trouve pas de réservation avec ce numéro
+  utter_resa_est_annulee:
+    - text : Votre reservation {numero_resa} a bien été annulée.
+actions:
+- action_check_numero_resa
+- utter_greet
+- utter_choices
+- utter_ask_resa
+- utter_ask_time
+- action_verif_date_and_personnes
+- action_check_if_date_and_personnes_dispo
+- action_confirm_resa
+- utter_time_taken
+- utter_is_checking
+- action_submit_hotel_booking
+- utter_goodbye
+- utter_booking
+- utter_booking_city
+- utter_booking_date
+- utter_confirm_booking
+- utter_ask_for_reconfirmation
+- utter_booking_cancelled
+- utter_default
+- utter_menu
+- utter_liste_allergene
+- utter_carte
+- utter_resa_est_dispo
+- utter_ask_numero_tel
+- utter_confirm_resa
+- utter_ask_for_comment
+- utter_valid_comment
+- action_annulation_resa
+- utter_resa_est_annulee
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+regex:
+  - name: numero_resa
+    pattern: '[A-Za-z0-9]{10}'

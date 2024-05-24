@@ -1,0 +1,89 @@
+version: "3.1"
+
+stories:
+- story: creer_reservation
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_choices
+  - intent: choice_creation_reservation
+  - action: utter_ask_time
+  - intent: inform_date
+    entities:
+    - date: Demain
+  - slot_was_set:
+    - date: Demain
+  - action: utter_time_taken
+  - intent: inform_nb_personnes
+    entities:
+    - nb_personne: 3
+  - slot_was_set:
+      - nb_personne: 3
+  - action: utter_is_checking
+  - action: action_check_if_date_and_personnes_dispo
+  - intent: inform_nom_resa
+    entities:
+      - nom: NOM
+  - slot_was_set:
+      - nom: NOM
+  - action: utter_ask_numero_tel
+  - intent: inform_numero_tel
+    entities:
+      - tel: 0781702606
+  - slot_was_set:
+      - tel: 0781702606
+  - action: action_confirm_resa
+  - action: action_restart
+
+- story: menu
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_choices
+  - intent: choice_menu
+  - action: utter_menu
+
+- story: liste_allergene
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_choices
+  - intent: choice_liste_allergene
+  - action: utter_liste_allergene
+
+- story: carte
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_choices
+  - intent: choice_carte
+  - action: utter_carte
+
+
+- story: infos_resa
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_choices
+  - intent: choice_info_reservation
+  - action: utter_ask_resa
+  - intent: provide_reservation_number
+    entities:
+    - numero_resa: [a-zA-Z0-9]
+  - action: action_check_numero_resa
+  - action: action_restart
+  - action: utter_choices
+
+- story: annuler_resa
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_choices
+  - intent: choice_annulation_reservation
+  - action: utter_ask_resa
+  - intent: provide_reservation_number
+    entities:
+    - numero_resa: [a-zA-Z0-9]
+  - action: action_annulation_resa
+  - action: action_restart
+  - action: utter_choices

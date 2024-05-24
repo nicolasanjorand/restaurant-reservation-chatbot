@@ -1,0 +1,191 @@
+version: "3.1"
+nlu:
+- intent: choice_creation_reservation
+  examples: |
+    - Je voudrais faire une reservation
+    - Creer une reservation
+    - Nouvelle reservation
+    - Je veux reserver un restaurant
+    - je souhaite reserver un restaurant
+    - je voudrais faire une reservation
+    - creer pour une reservation
+    - creer une reservation
+- intent: inform_date
+  examples: |
+    - [demain](date)
+    - pour [demain](date)
+- intent: inform_nb_personnes
+  examples: |
+    - [3](nb_personne) personnes
+    - [1](nb_personne) personne
+    - [2](nb_personne) personnes
+    - pour [1](nb_personne) personne
+- intent: inform_nom_resa
+  examples: |
+    - [nom](nom)
+    - [anjorand](nom)
+    - [Dupuis](nom)
+- intent: inform_numero_tel
+  examples: |
+    - [0781702606](tel)
+    - [06 83 92 01 92](tel)
+    - [01.02.94.93.78](tel)
+- intent: choice_annulation_reservation
+  examples: |
+    - Je voudrais annuler une reservation
+    - Annuler une reservation
+    - Supprimer une reservation
+- intent: choice_info_reservation
+  examples: |
+    - Je voudrais des informations pour une reservation
+    - Infos sur une reservation
+    - Je souhaite avoir des informations
+    - Pouvez vous me renseignez sur une reservation ?
+    - infos sur une reservation
+    - infos sur reservation
+- intent: provide_reservation_number
+  examples: |
+    - Mon numéro de réservation est [ABC1234567](numero_resa)
+    - Voici mon numéro de réservation : [ZYX0987654](numero_resa)
+    - [ZYX0987654](numero_resa)
+    - [LtdFu5hZF3](numero_resa)
+    - Mon numéro de réservation est [E12mcgsQK3](numero_resa)
+    - Mon numéro de réservation est [dG2dbXCmgb](numero_resa)
+    - Mon numéro de réservation est [HJKL5678AB](numero_resa)
+    - Voici mon numéro de réservation : [ABCDE12345](numero_resa)
+    - [12345ABCDE](numero_resa)
+    - Le numéro est [FGHIJK6789](numero_resa)
+    - Le numéro de réservation est [k46iwqJVR6](numero_resa)
+    - Réservation [k46iwqJVR6](numero_resa)
+    - Mon numéro de réservation est [MNBVCX1234](numero_resa)
+    - Voici mon numéro de réservation : [QWERT09876](numero_resa)
+    - [QWERT09876](numero_resa)
+    - [YUIOPLKJH1](numero_resa)
+    - Mon numéro de réservation est [ASDFGH5678](numero_resa)
+    - Mon numéro de réservation est [ZXCVBN3456](numero_resa)
+    - Le numéro de réservation est [PLMKOIUYT7](numero_resa)
+    - Numéro de réservation [PLMKOIUYT7](numero_resa)
+    - Numéro de réservation : [PLMKOIUYT7](numero_resa)
+    - Mon code de réservation est [JKLMN87654](numero_resa)
+    - Voici mon code de réservation : [DFGHJ56789](numero_resa)
+    - [DFGHJ56789](numero_resa)
+    - Mon code est [GHJKL34567](numero_resa)
+    - Réservation code [GHJKL34567](numero_resa)
+    - Mon numéro de réservation est [WERTY09876](numero_resa)
+    - Numéro de réservation est [SDFGH12345](numero_resa)
+    - Numéro de réservation : [SDFGH12345](numero_resa)
+    - [SDFGH12345](numero_resa)
+    - Mon code de réservation est [HGFDS87654](numero_resa)
+    - Code de réservation [HGFDS87654](numero_resa)
+    - Voici mon numéro de réservation : [TYUIO09876](numero_resa)
+    - Le code est [CVBNM12345](numero_resa)
+    - Mon numéro de réservation est [RTYUI67890](numero_resa)
+    - Mon numéro de réservation est [UYTRE34567](numero_resa)
+    - Le numéro est [TREWQ87654](numero_resa)
+    - Code de réservation : [QAZWS98765](numero_resa)
+    - Réservation numéro [XCVBN54321](numero_resa)
+    - Réservation [QAZWS12345](numero_resa)
+    - Mon numéro de réservation est [POLKM67890](numero_resa)
+    - Mon numéro de réservation est [MNBVC98765](numero_resa)
+    - Voici mon numéro de réservation : [OLKJM54321](numero_resa)
+    - [OLKJM54321](numero_resa)
+    - Le numéro de réservation est [MKLJN09876](numero_resa)
+    - Mon numéro de réservation est [LKJHG54321](numero_resa)
+    - Mon code de réservation est [GFDSA87654](numero_resa)
+    - Réservation code [DSAWQ12345](numero_resa)
+    - Mon numéro de réservation est [QWERT98765](numero_resa)
+    - Numéro de réservation est [YTREW65432](numero_resa)
+    - Numéro de réservation : [LKJHG87654](numero_resa)
+    - [HGFDS12345](numero_resa)
+    - Mon code de réservation est [ZXCVB65432](numero_resa)
+    - Code de réservation [BNMLO98765](numero_resa)
+    - Voici mon numéro de réservation : [MNBVC54321](numero_resa)
+    - Le code est [WERTY12345](numero_resa)
+    - Mon numéro de réservation est [ASDFG09876](numero_resa)
+    - Mon numéro de réservation est [ZXCVB87654](numero_resa)
+    - Le numéro est [QWERT54321](numero_resa)
+    - Code de réservation : [TREWQ98765](numero_resa)
+    - Réservation numéro [YUIOP12345](numero_resa)
+    - Réservation [ASDFG56789](numero_resa)
+    - Mon numéro de réservation est [POLKJ65432](numero_resa)
+    - Mon numéro de réservation est [LKJHG98765](numero_resa)
+    - Voici mon numéro de réservation : [HGFDS54321](numero_resa)
+    - [GFDSA12345](numero_resa)
+    - Le numéro de réservation est [QAZWS98765](numero_resa)
+    - Mon numéro de réservation est [PLMKJ65432](numero_resa)
+    - Mon code de réservation est [KJHGF98765](numero_resa)
+    - Réservation code [MNBVC12345](numero_resa)
+    - Mon numéro de réservation est [QAZWS65432](numero_resa)
+    - Numéro de réservation est [XCVBN98765](numero_resa)
+    - Numéro de réservation : [PLMKO54321](numero_resa)
+    - [ZXCVB12345](numero_resa)
+    - Mon code de réservation est [ASDFG98765](numero_resa)
+    - Code de réservation [QWERT65432](numero_resa)
+    - Voici mon numéro de réservation : [ZXCVB54321](numero_resa)
+    - Le code est [QWERT12345](numero_resa)
+    - Mon numéro de réservation est [ZXCVB09876](numero_resa)
+    - Mon numéro de réservation est [LKJHG87654](numero_resa)
+    - Le numéro est [ASDFG54321](numero_resa)
+    - Code de réservation : [ZXCVB98765](numero_resa)
+    - Réservation numéro [QWERT12345](numero_resa)
+- intent: choice_menu
+  examples: |
+    - Je veux le menu
+    - Menu du jour
+    - Menu
+    - Je souhaite avoir le menu du jour
+    - Pouvez vous me donner le menu du jour ?
+    - je souhaite voir le menu
+- intent: choice_liste_allergene
+  examples: |
+    - Je veux la liste des allergènes
+    - Liste allergènes
+    - Allergènes
+    - Je souhaite avoir la liste des allergènes
+    - Pouvez vous me donner la liste des allergènes ?
+    - je souhaite voir la liste des allergènes
+- intent: choice_carte
+  examples: |
+    - Je veux la carte
+    - Carte
+    - Carte du restaurant
+    - Je souhaite avoir la carte du restaurant
+    - Pouvez vous me donner votre carte ?
+    - je souhaite voir la carte
+- intent: greet
+  examples: |
+    - bonjour
+    - salut
+    - hello
+- intent: goodbye
+  examples: |
+    - au revoir
+    - Salut !
+    - A plus tard
+    - Bonne soiree
+    - bye
+    - passe une bonne journee
+    - A plus
+- intent: affirm
+  examples: |
+    - Oui
+    - o
+    - En effet
+    - Bien sur
+    - avec plaisir
+    - c'est vrai
+- intent: deny
+  examples: |
+    - non
+    - n
+    - jamais
+    - Je ne pense pas
+    - Je suis pas d'accord
+    - Bien sur que non
+    - pas vraiment
+- synonym: Demain
+  examples: |
+    - demain
+- regex: numero_resa
+  examples: |
+    - [a-zA-Z0-9]{10}
